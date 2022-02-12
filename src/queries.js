@@ -11,18 +11,7 @@ async function healthcheck() {
     }
 }
 
-async function randomCity() {
-    try {
-        const result = await pool.query(
-            'SELECT * FROM cities ORDER BY RANDOM() LIMIT 1'
-        );
-        return result.rows[0];
-      } catch (err) {
-        throw err;
-      }
-}
-
-async function citySearch(name, limit) {
+async function makeAppointment(data) {
     // Uses a parameterized query to avoid sql injection
     const sql = "SELECT * FROM cities WHERE LOWER(name) LIKE LOWER($1) LIMIT $2";
     const params = [(name + '%'), limit]
@@ -34,4 +23,4 @@ async function citySearch(name, limit) {
       }
 }
 
-module.exports = { healthcheck, randomCity, citySearch }
+module.exports = { healthcheck, makeAppointment}

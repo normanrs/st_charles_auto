@@ -11,9 +11,9 @@ describe('queries', () => {
           }
     });
 
-    it('randomCity should throw error on no db connection', async () => {
+    it('makeAppointment should throw error on no db connection', async () => {
         try {
-            await queries.randomCity();
+            await queries.makeAppointment();
           } catch (err) {
             expect(err).toHaveProperty('stack');
           }

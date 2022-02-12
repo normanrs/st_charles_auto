@@ -14,15 +14,17 @@ describe('Integration tests:', () => {
     expect(resp.body.healthy);
   });
 
-  test('should return a city at random response', async () => {
-    const resp = await http.get('/randomCity');
+  test('should make a new appointment', async () => {
+    const testQuery = {name: 'holt', limit: 20}
+    const resp = await http.get('/makeAppointment')
+        .query(testQuery);
     expect(resp.status).toEqual(200);
-    expect(resp.body).toHaveProperty('zipcode');
+    expect(resp.body).toBeInstanceOf(Array);
   });
 
-  test('should return cities matching search', async () => {
+  test('should return correct error if timeslot taken', async () => {
     const testQuery = {name: 'holt', limit: 20}
-    const resp = await http.get('/citySearch')
+    const resp = await http.get('/makeAppointment')
         .query(testQuery);
     expect(resp.status).toEqual(200);
     expect(resp.body).toBeInstanceOf(Array);
