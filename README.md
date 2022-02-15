@@ -19,10 +19,14 @@ A node API for scheduling vehicle service appointments, created for BizzyCar cod
 `nmp start` to start a locally served API
 
 ## Discussion
-Stuff here
-Things I've learned so far: 
-1. Here's a thing
+1. I started off using a NodeJS API template that I created. The template comes with the basics: a working Express API with a healthcheck and a GET route, connection to a database, and basic unit/integration testing.
+2. Basic API/Database setup is easy. I knew the harder aspects of this assignment were going to be:
+   1. Setting up the database to relate the tables such that a customer can have a vehicle and appointment.
+   2. Ensuring that appointments are available by returning an error if an appointment in that timeslot already exists.
 
 ## References
 The API the app gets data from:
+- [Code edited with Jetbrains WebStorm](https://www.jetbrains.com/webstorm/)
 - [Database stored on ElephantSQL](https://www.elephantsql.com/)
+- [Database tables created/viewed with Postico](https://eggerapps.at/postico/)
+- [API accessed with PAW](https://paw.cloud/)
